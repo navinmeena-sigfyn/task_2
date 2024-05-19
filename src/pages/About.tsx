@@ -1,15 +1,17 @@
 import React from 'react';
-import { useGlobalContext } from '../context/GlobalContext';
+import { useGlobalState } from '../context/GlobalStateContext';
+import { Link } from 'react-router-dom';
+
 
 const About: React.FC = () => {
-  const { globalVariable2 } = useGlobalContext();
+  const { state } = useGlobalState();
 
   return (
     <div>
-      <h1>Page2nd </h1>
-      <p>This is the About page.</p>
-      <p>Global Variable 2: {JSON.stringify(globalVariable2)}</p>
-     
+      <h1>2nd page</h1>
+      <p>Global Data: {JSON.stringify(state.data)}</p>
+      <br />
+      <Link to="/">Go to 1st Page</Link>
     </div>
   );
 };

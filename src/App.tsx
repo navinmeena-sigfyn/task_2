@@ -2,15 +2,9 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import Nav from "./components/nav";
 import AppRoutes from "./Routes";
-import { GlobalProvider } from "./context/GlobalContextProvider";
 import jsonData from "../src/data.json";
-import { useGlobalContext } from './context/GlobalContext';
-import { getCurrentPrice } from "./functions/GetCurrentPrice";
 
-const stock: string[] = jsonData.map((holding) => String(holding.AssetId));
-
-
-
+import { GlobalStateProvider } from "./context/GlobalStateContext";
 
 const App: React.FC = () => {
   
@@ -38,7 +32,7 @@ const App: React.FC = () => {
 
 
   return (
-    <GlobalProvider>
+    <GlobalStateProvider>
       <Router>
       <div>
         <Nav />
@@ -46,7 +40,7 @@ const App: React.FC = () => {
       </div>
     </Router>
 
-    </GlobalProvider>
+    </GlobalStateProvider>
     
   );
 };
